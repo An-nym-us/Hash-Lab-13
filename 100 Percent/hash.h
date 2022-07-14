@@ -43,16 +43,22 @@ public:
    //
    unordered_set()
    {
+      numElements = 0;
    }
    unordered_set(unordered_set&  rhs) 
    {
+      numElements = rhs.numElements;
+      
    }
    unordered_set(unordered_set&& rhs) 
    {
+      numElements = rhs.numElements;
+      
    }
    template <class Iterator>
    unordered_set(Iterator first, Iterator last)
    {
+      
    }
 
    //
