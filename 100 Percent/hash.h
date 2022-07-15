@@ -23,11 +23,13 @@
 #include <memory>     // for std::allocator
 #include <functional> // for std::hash
 #include <cmath>      // for std::ceil
+#include <iostream>
    
 
 class TestHash;             // forward declaration for Hash unit tests
 
 namespace custom
+
 {
 /************************************************
  * UNORDERED SET
@@ -48,6 +50,7 @@ public:
    unordered_set(unordered_set&  rhs) 
    {
       numElements = rhs.numElements;
+
       for (int i = 0; i < 10; i++)
       {
          this->buckets[i] = rhs.buckets[i];
@@ -58,7 +61,7 @@ public:
    unordered_set(unordered_set&& rhs) 
    {
       numElements = rhs.numElements;
-      
+      this = std::move(rhs);
    }
    template <class Iterator>
    unordered_set(Iterator first, Iterator last)
@@ -66,7 +69,7 @@ public:
      // numElements = rhs.numElements;
       for (auto it = first; it != last; it++)
       {
-         //this->buckets[it].size();
+         insert(*it);       
       }
 
    }
@@ -88,6 +91,14 @@ public:
    }
    void swap(unordered_set& rhs)
    {
+      list<T> temps[10];
+      std::swap( numElements, rhs.numElements);
+      for (int i = 0; i < 10; i++)
+      {
+         temps[i] = rhs.buckets[i];
+         rhs.buckets[i] = this->buckets[i];
+         this->buckets[i] = temps[i];
+      }
    }
 
    // 
@@ -97,12 +108,27 @@ public:
    class local_iterator;
    iterator begin()
    {
+
+
+      for (int i = 0; i < 10; i++)
+      {
+         if (this->buckets[i].empty() != false)
+         {
+            return iterator();
+         //return iterator(buckets->end(), buckets, buckets->begin());
+         }
+      }
       return iterator();
+      
    }
    iterator end()
    {
+      //return iterator(buckets->end(), buckets, buckets->begin());
       return iterator();
    }
+
+
+
    local_iterator begin(size_t iBucket)
    {
       return local_iterator();
@@ -141,19 +167,34 @@ public:
    //
    size_t size() const 
    { 
-      return 77;
+      int tempsize = 0;
+      for (int i = 0; i < 10; i++)
+      {
+         tempsize += this->buckets[i].size();
+      }
+      return tempsize;
    }
    bool empty() const 
    { 
-      return false;
+      bool tempIsEmpty = true;
+
+      for (int i = 0; i < 10; i++)
+      {
+         if (this->buckets[i].empty() != true)
+            tempIsEmpty = false;
+      }
+      if (tempIsEmpty)
+         return true;
+      else
+         return false;
    }
    size_t bucket_count() const 
-   { 
+   {   
       return 100;
    }
    size_t bucket_size(size_t i) const
-   {
-      return 99;
+   {    
+      return this->buckets[i].size();
    }
 
 private:
@@ -184,9 +225,14 @@ public:
             typename custom::list<T>* pBucketEnd,
             typename custom::list<T>::iterator itList)
    {
+      this->pBucketEnd = pBucketEnd;
+      this->pBucket = pBucket;
+      this->itList = itList;
+
    }
    iterator(const iterator& rhs) 
    { 
+      //this->itList = rhs.itList;
    }
 
    //
@@ -354,6 +400,7 @@ typename unordered_set <T> ::iterator & unordered_set<T>::iterator::operator ++ 
 template <typename T>
 void swap(unordered_set<T>& lhs, unordered_set<T>& rhs)
 {
+   lhs.swap(rhs);
 }
 
 }
