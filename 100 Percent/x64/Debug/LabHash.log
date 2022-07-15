@@ -1,6 +1,6 @@
 ﻿  testHash.cpp
-C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(173,43): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(169): message : while compiling class template member function 'size_t custom::unordered_set<size_t>::size(void) const'
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(187,43): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(183): message : while compiling class template member function 'size_t custom::unordered_set<size_t>::size(void) const'
 C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\testHash.h(2063): message : see reference to function template instantiation 'size_t custom::unordered_set<size_t>::size(void) const' being compiled
 C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\testHash.h(132): message : see reference to class template instantiation 'custom::unordered_set<size_t>' being compiled
   LabHash.vcxproj -> C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\x64\Debug\LabHash.exe

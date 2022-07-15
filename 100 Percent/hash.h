@@ -79,14 +79,28 @@ public:
    //
    unordered_set& operator=(unordered_set& rhs)
    {
+      this->numElements = rhs.numElements;
+      for (int i = 0; i < 10; i++)
+      {
+         this->buckets[i] = rhs.buckets[i];
+      }
       return *this;
    }
+
    unordered_set& operator=(unordered_set&& rhs)
    {
+      this->numElements = rhs.numElements;
+      rhs.numElements = 0;
+      for (int i = 0; i < 10; i++)
+      {
+         this->buckets[i] = rhs.buckets[i];
+         rhs.buckets[i] = 0;
+      }
       return *this;
    }
    unordered_set& operator=(const std::initializer_list<T>& il)
    {
+      *this = il;
       return *this;
    }
    void swap(unordered_set& rhs)
