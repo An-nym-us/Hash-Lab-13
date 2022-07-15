@@ -48,7 +48,7 @@ public:
 
       // Construct
       test_construct_default();
-      //test_constructIterator_standard();
+      test_constructIterator_standard();
       test_constructCopy_empty();
       test_constructCopy_standard();
 
@@ -110,14 +110,14 @@ public:
       //test_erase_standardLast();
       //
       //// Status
-      //test_size_empty();
-      //test_size_standard();
-      //test_empty_empty();
-      //test_empty_standard();
-      //test_bucketSize_empty();
-      //test_bucketSize_standardEmpty();
-      //test_bucketSize_standardOne();
-      //test_bucketSize_standardTwo();
+      test_size_empty();
+      test_size_standard();
+      test_empty_empty();
+      test_empty_standard();
+      test_bucketSize_empty();
+      test_bucketSize_standardEmpty();
+      test_bucketSize_standardOne();
+      test_bucketSize_standardTwo();
 
       report("Hash");
    }

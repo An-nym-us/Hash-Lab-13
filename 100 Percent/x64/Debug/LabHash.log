@@ -1,2 +1,15 @@
 ﻿  testHash.cpp
-  LabHash.vcxproj -> C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\x64\Debug\LabHash.exe
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(144,1): error C3867: 'custom::list<T>::size': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              T=size_t
+          ]
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(143): message : while compiling class template member function 'size_t custom::unordered_set<size_t>::size(void) const'
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\testHash.h(2063): message : see reference to function template instantiation 'size_t custom::unordered_set<size_t>::size(void) const' being compiled
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\testHash.h(132): message : see reference to class template instantiation 'custom::unordered_set<size_t>' being compiled
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(144,1): error C2440: 'return': cannot convert from 'size_t (__cdecl custom::list<T>::* )(void) const' to 'size_t'
+          with
+          [
+              T=size_t
+          ]
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\100 Percent\hash.h(144,23): message : There is no context in which this conversion is possible
