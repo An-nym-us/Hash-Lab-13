@@ -43,16 +43,35 @@ public:
    //
    unordered_set()
    {
+      numElements = 0;
+      for (int i = 0; i < 10; i++)
+      {
+         this->buckets[i] = -1;
+      }
    }
    unordered_set(unordered_set&  rhs) 
    {
+      numElements = rhs.numElements;
+      for (int i = 0; i < 10; i++)
+      {
+         this->buckets[i] = rhs.buckets[i];
+      }
    }
    unordered_set(unordered_set&& rhs) noexcept
    {
+      for (int i = 0; i < 10; i++)
+      {
+         this->buckets[i] = rhs.buckets[i];
+      }
    }
    template <class Iterator>
    unordered_set(Iterator first, Iterator last)
    {
+      for (auto it = first; it != last; it++)
+      {
+         insert(*it);
+      }
+
    }
 
    //
@@ -136,9 +155,13 @@ public:
    }
    iterator(int * pBucket, int * pBucketEnd)
    {
+      this->pBucket = pBucket;
+      this->pBucketEnd = pBucketEnd;
    }
    iterator(const iterator& rhs) 
    { 
+      this->pBucket = rhs.pBucket;
+      this->pBucketEnd = rhs.pBucketEnd;
    }
 
    //
@@ -146,6 +169,8 @@ public:
    //
    iterator& operator = (const iterator& rhs)
    {
+      this->pBucket = rhs.pBucket;
+      this->pBucketEnd = rhs.pBucketEnd;
       return *this;
    }
 
@@ -208,11 +233,22 @@ inline unordered_set& unordered_set::operator=(const std::initializer_list<int>&
 inline typename unordered_set::iterator  unordered_set::begin()
 {
    // find the first non-empty bucket
-   return unordered_set::iterator();
+   for (int i = 0; i < 10; i++)
+   {
+      if (buckets[i] > 0)
+      {
+         return unordered_set::iterator(buckets + i, buckets + 10);
+      }
+
+   }
+   
+   return unordered_set::iterator(buckets + 10, buckets + 10);
+
+   
 }
 inline typename unordered_set::iterator  unordered_set::end()
 {
-   return unordered_set::iterator();
+   return unordered_set::iterator(buckets+10, buckets+10);
 }
 
 

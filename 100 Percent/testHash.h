@@ -67,14 +67,14 @@ public:
       test_swapNonMember_standardOther();
 
       //// Iterator
-      //test_iterator_begin_empty();
-      //test_iterator_begin_standard();
-      //test_iterator_end_empty();
-      //test_iterator_end_standard();
-      //test_iterator_increment_empty();
-      //test_iterator_increment_moreInBucket();
-      //test_iterator_increment_nextBucket();
-      //test_iterator_increment_toEnd();
+      test_iterator_begin_empty();
+      test_iterator_begin_standard();
+      test_iterator_end_empty();
+      test_iterator_end_standard();
+      test_iterator_increment_empty();
+      test_iterator_increment_moreInBucket();
+      test_iterator_increment_nextBucket();
+      test_iterator_increment_toEnd();
       //test_iterator_dereference();
       //test_localIterator_begin_single();
       //test_localIterator_begin_multiple();
@@ -93,11 +93,11 @@ public:
       //test_find_standardMissingFilledList();
 
       // Insert
-      //test_insert_empty0();
-      //test_insert_empty58();
-      //test_insert_standard3();
-      //test_insert_standard77();
-      //test_insert_standardDuplicate();
+      test_insert_empty0();
+      test_insert_empty58();
+      test_insert_standard3();
+      test_insert_standard77();
+      test_insert_standardDuplicate();
 
       //// Remove
       //test_clear_empty();
