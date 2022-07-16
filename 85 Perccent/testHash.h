@@ -58,19 +58,19 @@ public:
       test_iterator_end_empty();
       test_iterator_end_standard();
       test_iterator_increment_empty();
-      //test_iterator_increment_nextBucket();
-      //test_iterator_increment_toEnd();
-      //test_iterator_dereference();
+      test_iterator_increment_nextBucket();
+      test_iterator_increment_toEnd();
+      test_iterator_dereference();
 
       // Access
-      //test_bucket_empty0();
-      //test_bucket_empty7();
-      //test_bucket_empty58();
-      //test_find_empty();
-      //test_find_standardFront();
-      //test_find_standardBack();
-      //test_find_standardMissingEmptyList();
-      //test_find_standardMissingFilledList();
+      test_bucket_empty0();
+      test_bucket_empty7();
+      test_bucket_empty58();
+      test_find_empty();
+      test_find_standardFront();
+      test_find_standardBack();
+      test_find_standardMissingEmptyList();
+      test_find_standardMissingFilledList();
 
       //// Insert
       test_insert_emptyTrivial();
