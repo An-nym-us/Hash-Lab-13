@@ -89,6 +89,15 @@ public:
    unordered_set& operator=(const std::initializer_list<int>& il);
    void swap(unordered_set& rhs)
    {
+
+      unordered_set temps;
+      std::swap(numElements, rhs.numElements);
+      for (int i = 0; i < 10; i++)
+      {
+         temps.buckets[i] = rhs.buckets[i];
+         rhs.buckets[i] = this->buckets[i];
+         this->buckets[i] = temps.buckets[i];
+      }
    }
 
    //
