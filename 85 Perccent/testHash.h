@@ -32,24 +32,24 @@ public:
       reset();
 
       // Construct
-      //test_construct_default();
+      test_construct_default();
      test_constructIterator_standard();
-      //test_constructCopy_empty();
-      //test_constructCopy_standard();
+      test_constructCopy_empty();
+      test_constructCopy_standard();
 
       // Assign
-      //test_assign_emptyEmpty();
-      //test_assign_emptyStandard();
-      //test_assign_standardEmpty();
-      //test_assignMove_emptyEmpty();
-      //test_assignMove_emptyStandard();
-      //test_assignMove_standardEmpty();
-      //test_swapMember_emptyEmpty();
-      //test_swapMember_standardEmpty();
-      //test_swapMember_standardOther();
-      //test_swapNonMember_emptyEmpty();
-      //test_swapNonMember_standardEmpty();
-      //test_swapNonMember_standardOther();
+      test_assign_emptyEmpty();
+      test_assign_emptyStandard();
+      test_assign_standardEmpty();
+      test_assignMove_emptyEmpty();
+      test_assignMove_emptyStandard();
+      test_assignMove_standardEmpty();
+      test_swapMember_emptyEmpty();
+      test_swapMember_standardEmpty();
+      test_swapMember_standardOther();
+      test_swapNonMember_emptyEmpty();
+      test_swapNonMember_standardEmpty();
+      test_swapNonMember_standardOther();
 
 
       // Iterator
@@ -58,9 +58,9 @@ public:
       test_iterator_end_empty();
       test_iterator_end_standard();
       test_iterator_increment_empty();
-     // test_iterator_increment_nextBucket();
+      //test_iterator_increment_nextBucket();
       //test_iterator_increment_toEnd();
-     // test_iterator_dereference();
+      //test_iterator_dereference();
 
       // Access
       //test_bucket_empty0();
@@ -88,13 +88,13 @@ public:
       test_erase_standardLast();
 
       //// Status
-      //test_size_empty();
-      //test_size_standard();
-      //test_empty_empty();
-      //test_empty_standard();
-      //test_bucketSize_empty();
-      //test_bucketSize_standardEmpty();
-      //test_bucketSize_standardOne();
+      test_size_empty();
+      test_size_standard();
+      test_empty_empty();
+      test_empty_standard();
+      test_bucketSize_empty();
+      test_bucketSize_standardEmpty();
+      test_bucketSize_standardOne();
 
       report("Hash");
    }
