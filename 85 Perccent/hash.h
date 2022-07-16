@@ -87,22 +87,8 @@ public:
    unordered_set& operator=(unordered_set& rhs);
    unordered_set& operator=(unordered_set&& rhs) noexcept;
    unordered_set& operator=(const std::initializer_list<int>& il);
-
    void swap(unordered_set& rhs)
    {
-
-      custom::unordered_set temps;
-      
-
-      std::swap(numElements, rhs.numElements);
-
-      for (int i = 0; i < 10; i++)
-      {
-         temps.buckets[i] = rhs.buckets[i];
-         rhs.buckets[i] = this->buckets[i];
-         this->buckets[i] = temps.buckets[i];
-      }
-
    }
 
    //
@@ -241,11 +227,10 @@ private:
 inline unordered_set& unordered_set::operator=(unordered_set& rhs)
 {
    this->numElements = rhs.numElements;
-   for (int i = 0; i < 10; i++)
-   {
-      this->buckets[i] = rhs.buckets[i];
-   }
-   
+    for (int i = 0; i < 10; i++)
+    {
+       this->buckets[i] = rhs.buckets[i];
+    }
    return *this;
 }
 inline unordered_set& unordered_set::operator=(unordered_set&& rhs) noexcept
@@ -261,8 +246,7 @@ inline unordered_set& unordered_set::operator=(unordered_set&& rhs) noexcept
    return *this;
 }
 inline unordered_set& unordered_set::operator=(const std::initializer_list<int>& il)
-{  
-   *this = il;
+{
    return *this;
 }
 
@@ -299,16 +283,14 @@ inline typename unordered_set::iterator  unordered_set::end()
  ****************************************/
 inline typename unordered_set::iterator unordered_set::erase(const int& t)
 {
-   int buckettemp = 0;
-   buckettemp = t % 10;
+   int buckettemp = (int)bucket(t);
    if (buckettemp != 10 && buckets[buckettemp] != HASH_EMPTY_VALUE)
    {
       buckets[buckettemp] = HASH_EMPTY_VALUE;
       
       if(numElements != 0)
          numElements--;
-
-      buckettemp =  10;
+      buckettemp =10;
    }
    else
    {
@@ -383,8 +365,10 @@ inline typename unordered_set::iterator & unordered_set::iterator::operator ++ (
        return *this;
 
    ++pBucket;
-   if(pBucket != pBucketEnd)
-      return *this;
+   
+   while(*pBucket ==-1)
+      ++pBucket;
+   
  
    
    return *this;
@@ -398,5 +382,5 @@ inline void swap(unordered_set& lhs, unordered_set& rhs)
 {
    lhs.swap(rhs);
 }
-   
+
 }
