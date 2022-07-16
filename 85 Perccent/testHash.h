@@ -32,10 +32,10 @@ public:
       reset();
 
       // Construct
-      test_construct_default();
-     //test_constructIterator_standard();
-      test_constructCopy_empty();
-      test_constructCopy_standard();
+      //test_construct_default();
+     test_constructIterator_standard();
+      //test_constructCopy_empty();
+      //test_constructCopy_standard();
 
       // Assign
       //test_assign_emptyEmpty();

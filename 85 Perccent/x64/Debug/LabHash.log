@@ -1,2 +1,21 @@
 ﻿  testHash.cpp
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\85 Perccent\hash.h(73,26): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory(850): message : see reference to function template instantiation 'custom::unordered_set::unordered_set<_Ty>(Iterator,Iterator)' being compiled
+          with
+          [
+              _Ty=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int>>>,
+              Iterator=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int>>>
+          ]
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\85 Perccent\testHash.h(130): message : see reference to function template instantiation 'void std::allocator<custom::unordered_set>::construct<custom::unordered_set,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(_Objty *const ,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> &&,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> &&)' being compiled
+          with
+          [
+              _Ty=int,
+              _Objty=custom::unordered_set
+          ]
+C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\85 Perccent\testHash.h(130): message : see reference to function template instantiation 'void std::allocator<custom::unordered_set>::construct<custom::unordered_set,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(_Objty *const ,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> &&,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> &&)' being compiled
+          with
+          [
+              _Ty=int,
+              _Objty=custom::unordered_set
+          ]
   LabHash.vcxproj -> C:\Users\Jonathans Desktop\Documents\Schoolwork\DESIGNING data strucs\Hash-Lab-13\85 Perccent\x64\Debug\LabHash.exe
