@@ -69,7 +69,7 @@ public:
    template <class Iterator>
    unordered_set(Iterator first, Iterator last)
    {
-      numElements = last - first;
+      numElements = (int)(last - first);
        
        for (auto it = first; it != last; it++)
        {
@@ -283,21 +283,34 @@ inline typename unordered_set::iterator  unordered_set::end()
  ****************************************/
 inline typename unordered_set::iterator unordered_set::erase(const int& t)
 {
-   int buckettemp = (int)bucket(t);
-   if (buckettemp != 10 && buckets[buckettemp] != HASH_EMPTY_VALUE)
-   {
-      buckets[buckettemp] = HASH_EMPTY_VALUE;
-      
-      if(numElements != 0)
-         numElements--;
-      buckettemp =10;
-   }
-   else
-   {
-      buckettemp = 10;
-   }
    
-   return unordered_set::iterator(buckets + buckettemp, buckets + 10);
+  
+   auto itErase = find(t);
+   
+   auto itReturn = itErase;
+   ++itReturn;
+   
+   buckets[bucket(t)] = HASH_EMPTY_VALUE;
+   
+   numElements--;
+   
+   return itReturn;
+   
+//   int buckettemp = (int)bucket(t);
+//   if (buckettemp != 10 && buckets[buckettemp] != HASH_EMPTY_VALUE)
+//   {
+//      buckets[buckettemp] = HASH_EMPTY_VALUE;
+//
+//      if(numElements != 0)
+//         numElements--;
+//      buckettemp =10;
+//   }
+//   else
+//   {
+//      buckettemp = 10;
+//   }
+//
+//   return unordered_set::iterator(buckets + buckettemp, buckets + 10);
 }
 
 
