@@ -194,7 +194,9 @@ public:
    }
    bool operator == (const iterator& rhs) const
    {
-      return true;
+      if(pBucket == rhs.pBucket && pBucketEnd == rhs.pBucketEnd)
+         return true;
+      return false;
    }
 
    //
@@ -286,6 +288,9 @@ inline typename unordered_set::iterator unordered_set::erase(const int& t)
    
   
    auto itErase = find(t);
+   
+   if(itErase == end())
+      return itErase;
    
    auto itReturn = itErase;
    ++itReturn;
