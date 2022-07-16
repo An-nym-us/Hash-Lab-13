@@ -101,7 +101,7 @@ public:
    // Access
    size_t bucket(const int & t)
    {
-      return 99;
+      return t % bucket_count();
    }
    iterator find(const int& t);
 
@@ -202,7 +202,7 @@ public:
    //
    int& operator * ()
    {
-      return *(new int(99));
+      return *(pBucket);
    }
 
    //
@@ -335,11 +335,13 @@ inline void unordered_set::insert(const std::initializer_list<int> & il)
  ****************************************/
 inline typename unordered_set::iterator unordered_set::find(const int& t)
 {
-   int buckettemp = 0;
-   buckettemp = t % 10;
-
+   int idxBucket = (int)bucket(t);
    
-   return unordered_set::iterator(buckets + buckettemp, buckets + 10);
+   int elem = buckets[idxBucket];
+   if(elem !=-1)
+      return unordered_set::iterator(buckets+idxBucket, buckets+10);
+   
+   return unordered_set::iterator(buckets+10, buckets + 10);
 }
 
 /*****************************************
@@ -348,16 +350,13 @@ inline typename unordered_set::iterator unordered_set::find(const int& t)
  ****************************************/
 inline typename unordered_set::iterator & unordered_set::iterator::operator ++ ()
 {
-//   if(pBucket == pBucketEnd)
-//       return *this;
-//
-//   ++pBucket;
-//   if(pBucket != pBucketEnd)
-//      return *this;
-//
-   while(pBucket != pBucketEnd && *pBucket == -1)
-      ++pBucket;
-   
+   if(pBucket == pBucketEnd)
+       return *this;
+
+   ++pBucket;
+   if(pBucket != pBucketEnd)
+      return *this;
+ 
    
    return *this;
 }
