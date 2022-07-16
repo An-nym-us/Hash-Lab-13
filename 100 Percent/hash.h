@@ -121,10 +121,15 @@ public:
    class local_iterator;
    iterator begin()
    {
-      for(auto it= buckets->begin(); it!= buckets->end(); it++){
-         std:: cout << *it << std:: endl;
+      for(int i =0; i < 10;i++)
+      {
+         if(buckets[i].size() >0)
+         {
+            return iterator(buckets+i, buckets+10, buckets[i].begin());
+         }
+         
       }
-      return end();
+      return this->end();
    }
    
    iterator end()
@@ -133,19 +138,22 @@ public:
 //      return iterator(buckets->end(), buckets, this->begin(1));
 //      return iterator(buckets, buckets->end();
  
+//      return iterator(buckets, buckets->end(), this->begin());
+////      return iterator();
+//      return iterator(buckets, buckets->end(),this->begin(0));
+      return iterator(buckets+10, buckets+10, buckets[0].end());
 //      return iterator();
-      return iterator();
    }
 
 
 
    local_iterator begin(size_t iBucket)
    {
-      return local_iterator();
+      return local_iterator(buckets[iBucket].begin());
    }
    local_iterator end(size_t iBucket)
    {
-      return local_iterator();
+      return local_iterator(buckets[iBucket].end());
    }
 
    //
@@ -153,7 +161,7 @@ public:
    //
    size_t bucket(const T& t)
    {
-      return numElements;
+      return t % bucket_count() ;
    }
    iterator find(const T& t);
 
@@ -200,7 +208,7 @@ public:
    }
    size_t bucket_count() const
    {
-      return 100;
+      return 10;
    }
    size_t bucket_size(size_t i) const
    {
@@ -231,6 +239,10 @@ public:
    iterator()
    {
    }
+   iterator(typename custom::list<T>* pBucket,   typename custom::list<T>* pBucketEnd){
+      this->pBucket = pBucket;
+      this->pBucketEnd = pBucketEnd;
+   }
    iterator(typename custom::list<T>* pBucket,
             typename custom::list<T>* pBucketEnd,
             typename custom::list<T>::iterator itList)
@@ -243,6 +255,7 @@ public:
    iterator(const iterator& rhs)
    {
       //this->itList = rhs.itList;
+      *this = rhs;
    }
 
    //
@@ -250,6 +263,9 @@ public:
    //
    iterator& operator = (const iterator& rhs)
    {
+      this->pBucket = rhs.pBucket;
+      this->pBucketEnd = rhs.pBucketEnd;
+      this->itList = rhs.itList;
       return *this;
    }
 
@@ -394,6 +410,17 @@ void unordered_set<T>::insert(const std::initializer_list<T> & il)
 template <typename T>
 typename unordered_set <T> ::iterator unordered_set<T>::find(const T& t)
 {
+//   int idxBucket = (int)bucket(t);
+//
+//   auto it = buckets[idxBucket];
+//
+//   for(auto i = it.begin(); i!= it.end(); i++)
+//   {
+//      if((*i) == t)
+//         return iterator();
+//   }
+//
+   
    return iterator();
 }
 
