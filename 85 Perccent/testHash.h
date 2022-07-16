@@ -33,7 +33,7 @@ public:
 
       // Construct
       test_construct_default();
-     // test_constructIterator_standard();
+     //test_constructIterator_standard();
       test_constructCopy_empty();
       test_constructCopy_standard();
 
@@ -55,12 +55,12 @@ public:
       // Iterator
       test_iterator_begin_empty();
       test_iterator_begin_standard();
-      //test_iterator_end_empty();
-      //test_iterator_end_standard();
-      //test_iterator_increment_empty();
-      //test_iterator_increment_nextBucket();
+      test_iterator_end_empty();
+      test_iterator_end_standard();
+      test_iterator_increment_empty();
+     // test_iterator_increment_nextBucket();
       //test_iterator_increment_toEnd();
-      //test_iterator_dereference();
+     // test_iterator_dereference();
 
       // Access
       //test_bucket_empty0();
@@ -73,19 +73,19 @@ public:
       //test_find_standardMissingFilledList();
 
       //// Insert
-      //test_insert_emptyTrivial();
-      //test_insert_emptyValue();
-      //test_insert_standardNew();
-      //test_insert_standardReplace();
-      //test_insert_standardDuplicate();
+      test_insert_emptyTrivial();
+      test_insert_emptyValue();
+      test_insert_standardNew();
+      test_insert_standardReplace();
+      test_insert_standardDuplicate();
 
       //// Remove
-      //test_clear_empty();
-      //test_clear_standard();
-      //test_erase_empty();
-      //test_erase_standardMissing();
-      //test_erase_standardAlone();
-      //test_erase_standardLast();
+      test_clear_empty();
+      test_clear_standard();
+      test_erase_empty();
+      test_erase_standardMissing();
+      test_erase_standardAlone();
+      test_erase_standardLast();
 
       //// Status
       //test_size_empty();

@@ -23,6 +23,9 @@
 #include <cassert>          // for assert()
 #include <initializer_list> // for std::initializer_list
 #include <utility>          // for std::move()
+
+
+#include <iostream>
    
 #define HASH_EMPTY_VALUE -1
 
@@ -110,6 +113,11 @@ public:
    //
    void clear() noexcept
    {
+      for (int i = 0; i < 10; i++)
+      {
+         buckets[i] = HASH_EMPTY_VALUE;
+      }
+
    }
    iterator erase(const int& t);
 
@@ -268,11 +276,39 @@ inline typename unordered_set::iterator unordered_set::erase(const int& t)
  ****************************************/
 inline custom::unordered_set::iterator unordered_set::insert(const int& t)
 {
-   return unordered_set::iterator();
+   int buckettemp = 0;
+   if (t == 0)
+   {
+      this->buckets[0] = t;
+      numElements++;
+      return unordered_set::iterator(buckets + 0, buckets + 10);
+   }
+
+   buckettemp =  t % 10;
+
+
+   if ((this->buckets[buckettemp] != t) && (this->buckets[buckettemp] == HASH_EMPTY_VALUE) )
+   {
+      this->buckets[buckettemp] = t;
+      numElements++;
+   }
+   else
+   {
+      this->buckets[buckettemp] = t;
+   }
+
+
+
+
+
+
+   return unordered_set::iterator(buckets + buckettemp, buckets + 10);
 }
 
 inline void unordered_set::insert(const std::initializer_list<int> & il)
 {
+
+
 }
 
 /*****************************************
